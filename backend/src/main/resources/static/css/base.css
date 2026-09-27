@@ -1,0 +1,66 @@
+:root {
+    --color-bg: #0f1115;
+    --color-surface: #171a21;
+    --color-surface-2: #1f232c;
+    --color-border: #2a2f3a;
+    --color-text: #e6e8eb;
+    --color-text-muted: #9aa1ac;
+    --color-primary: #4f8cff;
+    --color-primary-hover: #6ea0ff;
+    --color-success: #3ddc84;
+    --color-danger: #ff5c5c;
+    --color-warning: #ffb84f;
+    --font-sans: "Segoe UI", system-ui, -apple-system, sans-serif;
+    --font-mono: "Consolas", "Courier New", monospace;
+    --radius: 8px;
+    --spacing-1: 4px;
+    --spacing-2: 8px;
+    --spacing-3: 16px;
+    --spacing-4: 24px;
+    --spacing-5: 40px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-padding-top: env(safe-area-inset-top, 0px);
+}
+
+body {
+    font-family: var(--font-sans);
+    background: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.5;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--color-primary-hover);
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+h1, h2, h3 {
+    font-weight: 600;
+    line-height: 1.25;
+}
+
+.container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-3);
+}

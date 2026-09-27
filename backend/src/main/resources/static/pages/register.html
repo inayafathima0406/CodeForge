@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Sign up - CodeForge</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/components.css">
+</head>
+<body>
+    <div class="container" style="max-width: 400px; padding-top: 60px;">
+        <h1 style="text-align: center; margin-bottom: 32px;">
+            <a href="/index.html" style="color: inherit;">CodeForge</a>
+        </h1>
+
+        <div class="card">
+            <h2 style="margin-bottom: 24px;">Create your account</h2>
+
+            <form id="register-form">
+                <div class="form-group">
+                    <label for="fullName">Full name</label>
+                    <input class="input" type="text" id="fullName" required autocomplete="name">
+                </div>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input class="input" type="text" id="username" required autocomplete="username"
+                           minlength="3" maxlength="50" pattern="[A-Za-z0-9_]+"
+                           title="Letters, numbers, and underscores only">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input class="input" type="email" id="email" required autocomplete="email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input class="input" type="password" id="password" required autocomplete="new-password"
+                           minlength="8" maxlength="72">
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Sign up</button>
+                <p id="error-message" class="error-text" style="display: none;"></p>
+            </form>
+
+            <p class="text-muted" style="margin-top: 20px; text-align: center;">
+                Already have an account? <a href="/pages/login.html">Log in</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="/js/api.js"></script>
+    <script>
+        document.getElementById("register-form").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const errorEl = document.getElementById("error-message");
+            errorEl.style.display = "none";
+
+            const fullName = document.getElementById("fullName").value;
+            const username = document.getElementById("username").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            try {
+                await api.post("/auth/register", { fullName, username, email, password });
+                const loginResult = await api.post("/auth/login", { username, password });
+                setToken(loginResult.token);
+                window.location.href = "/pages/dashboard.html";
+            } catch (err) {
+                errorEl.textContent = err.message;
+                errorEl.style.display = "block";
+            }
+        });
+    </script>
+</body>
+</html>
