@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Problem - CodeForge</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/components.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar" id="navbar"></nav>
+
+        <div style="padding: 24px 0;">
+            <a href="/pages/problems.html" class="text-muted" style="font-size: 14px;">&larr; Back to problems</a>
+
+            <p id="loading-text" class="text-muted" style="margin-top: 16px;">Loading problem...</p>
+            <p id="error-message" class="error-text" style="display: none;"></p>
+
+            <div id="problem-content" style="display: none; margin-top: 16px;">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+                    <h1 id="problem-title" style="font-size: 26px;"></h1>
+                    <span id="problem-difficulty" class="badge"></span>
+                </div>
+                <p id="problem-topic" class="text-muted" style="margin-bottom: 24px;"></p>
+
+                <div class="card" style="margin-bottom: 20px;">
+                    <h3 style="margin-bottom: 12px;">Statement</h3>
+                    <p id="problem-statement" style="white-space: pre-wrap;"></p>
+                </div>
+
+                <div class="card" style="margin-bottom: 20px;">
+                    <h3 style="margin-bottom: 12px;">Input</h3>
+                    <p id="problem-input" style="white-space: pre-wrap;"></p>
+                </div>
+
+                <div class="card" style="margin-bottom: 20px;">
+                    <h3 style="margin-bottom: 12px;">Output</h3>
+                    <p id="problem-output" style="white-space: pre-wrap;"></p>
+                </div>
+
+                <div class="card" style="margin-bottom: 20px;">
+                    <h3 style="margin-bottom: 12px;">Constraints</h3>
+                    <p id="problem-constraints" style="white-space: pre-wrap;"></p>
+                </div>
+
+                <h3 style="margin-bottom: 12px;">Sample Test Cases</h3>
+                <div id="sample-cases"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/auth-guard.js"></script>
+    <script src="/js/navbar.js"></script>
+    <script src="/js/problem-detail.js"></script>
+</body>
+</html>
