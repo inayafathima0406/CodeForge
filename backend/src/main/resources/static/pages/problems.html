@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Problems - CodeForge</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/components.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar" id="navbar"></nav>
+
+        <div style="padding: 32px 0 16px;">
+            <h1 style="font-size: 28px; margin-bottom: 20px;">Problems</h1>
+
+            <div style="display: flex; gap: 12px; margin-bottom: 24px; flex-wrap: wrap;">
+                <input class="input" type="text" id="search-input" placeholder="Search by title..." style="flex: 1; min-width: 200px;">
+                <select class="input" id="topic-filter" style="width: 180px;">
+                    <option value="">All topics</option>
+                </select>
+                <select class="input" id="difficulty-filter" style="width: 150px;">
+                    <option value="">All difficulties</option>
+                    <option value="EASY">Easy</option>
+                    <option value="MEDIUM">Medium</option>
+                    <option value="HARD">Hard</option>
+                </select>
+            </div>
+
+            <p id="loading-text" class="text-muted">Loading problems...</p>
+            <p id="error-message" class="error-text" style="display: none;"></p>
+
+            <div id="problems-list"></div>
+        </div>
+    </div>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/auth-guard.js"></script>
+    <script src="/js/navbar.js"></script>
+    <script src="/js/problems.js"></script>
+</body>
+</html>
