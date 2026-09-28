@@ -63,7 +63,7 @@
                 await api.post("/auth/register", { fullName, username, email, password });
                 const loginResult = await api.post("/auth/login", { username, password });
                 setToken(loginResult.token);
-                window.location.href = "/pages/dashboard.html";
+                window.location.href = "/pages/problems.html";
             } catch (err) {
                 errorEl.textContent = err.message;
                 errorEl.style.display = "block";

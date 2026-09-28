@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -43,6 +43,17 @@
                     <h3 style="margin-bottom: 12px;">Constraints</h3>
                     <p id="problem-constraints" style="white-space: pre-wrap;"></p>
                 </div>
+                <h3 style="margin: 24px 0 12px;">Your Solution (Java)</h3>
+                <div class="card" style="margin-bottom: 16px;">
+                    <textarea id="code-editor" spellcheck="false"
+                        style="width: 100%; min-height: 320px; background: var(--color-surface-2); color: var(--color-text); border: 1px solid var(--color-border); border-radius: 6px; padding: 12px; font-family: var(--font-mono); font-size: 14px; tab-size: 4; resize: vertical;"></textarea>
+                    <div style="margin-top: 12px; display: flex; gap: 12px; align-items: center;">
+                        <button id="run-button" class="btn btn-primary">Run</button>
+                        <span id="run-status" class="text-muted"></span>
+                    </div>
+                </div>
+                <div id="run-results"></div>
+
 
                 <h3 style="margin-bottom: 12px;">Sample Test Cases</h3>
                 <div id="sample-cases"></div>
@@ -54,5 +65,6 @@
     <script src="/js/auth-guard.js"></script>
     <script src="/js/navbar.js"></script>
     <script src="/js/problem-detail.js"></script>
+    <script src="/js/run.js"></script>
 </body>
 </html>

@@ -49,7 +49,7 @@
             try {
                 const result = await api.post("/auth/login", { username, password });
                 setToken(result.token);
-                window.location.href = "/pages/dashboard.html";
+                window.location.href = "/pages/problems.html";
             } catch (err) {
                 errorEl.textContent = err.message;
                 errorEl.style.display = "block";
