@@ -13,6 +13,7 @@
     const loggedInLinks = `
         <a href="/pages/dashboard.html">Dashboard</a>
         <a href="/pages/problems.html">Problems</a>
+        <a href="/pages/submissions.html">Submissions</a>
         <a href="#" id="logout-link">Log out</a>
     `;
 
