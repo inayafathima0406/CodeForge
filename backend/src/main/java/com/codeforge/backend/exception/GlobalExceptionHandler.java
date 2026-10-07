@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import com.codeforge.backend.execution.ExecutionUnavailableException;
+import com.codeforge.backend.mentor.MentorUnavailableException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -32,6 +33,11 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(ExecutionUnavailableException.class)
     public ResponseEntity<Map<String, Object>> handleExecutionUnavailable(ExecutionUnavailableException ex) {
+        return build(HttpStatus.SERVICE_UNAVAILABLE, ex.getMessage());
+    }
+
+    @ExceptionHandler(MentorUnavailableException.class)
+    public ResponseEntity<Map<String, Object>> handleMentorUnavailable(MentorUnavailableException ex) {
         return build(HttpStatus.SERVICE_UNAVAILABLE, ex.getMessage());
     }
 
