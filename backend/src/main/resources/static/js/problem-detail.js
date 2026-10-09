@@ -1,4 +1,4 @@
-﻿function difficultyBadgeClass(difficulty) {
+function difficultyBadgeClass(difficulty) {
     if (difficulty === "EASY") return "badge-easy";
     if (difficulty === "MEDIUM") return "badge-medium";
     return "badge-hard";
@@ -26,12 +26,6 @@ function renderSampleCases(samples) {
             ${s.explanation ? `<div class="text-muted" style="font-size: 13px;">${escapeHtml(s.explanation)}</div>` : ''}
         </div>
     `).join("");
-}
-
-function escapeHtml(text) {
-    const div = document.createElement("div");
-    div.textContent = text;
-    return div.innerHTML;
 }
 
 function getQuestionId() {

@@ -46,3 +46,8 @@ const api = {
     put: (path, data) => apiRequest(path, { method: "PUT", body: JSON.stringify(data) }),
     del: (path) => apiRequest(path, { method: "DELETE" }),
 };
+function escapeHtml(text) {
+    const div = document.createElement("div");
+    div.textContent = text == null ? "" : text;
+    return div.innerHTML;
+}
