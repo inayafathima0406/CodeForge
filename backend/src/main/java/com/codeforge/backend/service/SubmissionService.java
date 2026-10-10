@@ -65,7 +65,11 @@ public class SubmissionService {
 
     // No @Transactional here: Judge0 calls can take several seconds each,
     // and we do not want a database connection held open while waiting on them.
-    public SubmissionDetailResponse submit(Long questionId, CodeRequest request, Authentication auth) {
+public SubmissionDetailResponse submit(Long questionId, CodeRequest request, Authentication auth) {
+        return submit(questionId, request, auth, null);
+    }
+
+    public SubmissionDetailResponse submit(Long questionId, CodeRequest request, Authentication auth, Long testAttemptId) {
         Question question = questionRepository.findById(questionId)
                 .filter(Question::isPublished)
                 .orElseThrow(() -> new ResourceNotFoundException("Question not found"));
@@ -119,7 +123,7 @@ public class SubmissionService {
                 .max(Integer::compareTo).orElse(null);
 
         Submission submission = submissionWriter.save(user, question, language, request.sourceCode(),
-                finalStatus, maxTime, maxMemory, passed, allCases.size(), outcomes);
+                finalStatus, maxTime, maxMemory, passed, allCases.size(), outcomes, testAttemptId);
 
         return new SubmissionDetailResponse(
                 submission.getId(), question.getId(), question.getTitle(), language.getName(),

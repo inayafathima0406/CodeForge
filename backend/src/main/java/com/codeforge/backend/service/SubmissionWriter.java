@@ -30,9 +30,9 @@ public class SubmissionWriter {
     @Transactional
     public Submission save(User user, Question question, Language language, String sourceCode,
                            String status, Integer time, Integer memory, int passed, int total,
-                           List<SubmissionService.RunOutcome> outcomes) {
+                           List<SubmissionService.RunOutcome> outcomes, Long testAttemptId) {
         Submission submission = submissionRepository.save(
-                new Submission(user, question, language, sourceCode, status, time, memory, passed, total));
+                new Submission(user, question, language, sourceCode, status, time, memory, passed, total, testAttemptId));
 
         for (SubmissionService.RunOutcome o : outcomes) {
             submissionResultRepository.save(new SubmissionResult(

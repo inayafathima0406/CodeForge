@@ -52,6 +52,9 @@ public class Submission {
     @Column(name = "total_count", nullable = false)
     private int totalCount;
 
+    @Column(name = "test_attempt_id")
+    private Long testAttemptId;
+
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
@@ -60,7 +63,8 @@ public class Submission {
 
     public Submission(User user, Question question, Language language, String sourceCode,
                       String status, Integer execTimeMs, Integer memoryKb,
-                      int passedCount, int totalCount) {
+                      int passedCount, int totalCount, Long testAttemptId) {
+        this.testAttemptId = testAttemptId;
         this.user = user;
         this.question = question;
         this.language = language;
@@ -87,5 +91,6 @@ public class Submission {
     public Integer getMemoryKb() { return memoryKb; }
     public int getPassedCount() { return passedCount; }
     public int getTotalCount() { return totalCount; }
+    public Long getTestAttemptId() { return testAttemptId; }
     public LocalDateTime getCreatedAt() { return createdAt; }
 }
