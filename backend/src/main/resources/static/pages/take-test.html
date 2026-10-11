@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Test in Progress - CodeForge</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/components.css">
+</head>
+<body>
+    <div class="container">
+        <div class="navbar" style="padding-top: calc(16px + env(safe-area-inset-top, 0px));">
+            <strong id="test-title">Loading...</strong>
+            <span id="timer" class="badge" style="background: var(--color-surface-2); font-size: 16px; padding: 6px 16px;">--:--</span>
+        </div>
+
+        <div style="display: flex; gap: 12px; margin: 20px 0; flex-wrap: wrap;" id="question-tabs"></div>
+
+        <p id="error-message" class="error-text" style="display: none;"></p>
+
+        <div id="question-area"></div>
+
+        <button id="finish-button" class="btn btn-outline" style="margin-top: 20px;">Finish Test</button>
+    </div>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/auth-guard.js"></script>
+    <script src="/js/take-test.js"></script>
+</body>
+</html>

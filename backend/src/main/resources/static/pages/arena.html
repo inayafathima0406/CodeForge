@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Placement Arena - CodeForge</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/components.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar" id="navbar"></nav>
+        <div style="padding: 32px 0;">
+            <h1 style="font-size: 28px; margin-bottom: 8px;">Placement Arena</h1>
+            <p class="text-muted" style="margin-bottom: 24px;">Timed tests that simulate a real placement round.</p>
+            <p id="loading-text" class="text-muted">Loading...</p>
+            <p id="error-message" class="error-text" style="display: none;"></p>
+            <div id="tests-list" style="margin-bottom: 32px;"></div>
+
+            <h2 style="font-size: 20px; margin-bottom: 14px;">My Attempts</h2>
+            <div id="attempts-list"></div>
+        </div>
+    </div>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/auth-guard.js"></script>
+    <script src="/js/navbar.js"></script>
+    <script src="/js/arena.js"></script>
+</body>
+</html>
