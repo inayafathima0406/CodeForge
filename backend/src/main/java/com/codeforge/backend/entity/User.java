@@ -38,6 +38,9 @@ public class User {
     @JoinColumn(name = "role_id", nullable = false)
     private Role role;
 
+    @Column(nullable = false)
+    private int xp = 0;
+
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
@@ -64,5 +67,7 @@ public class User {
     public String getFullName() { return fullName; }
     public void setFullName(String fullName) { this.fullName = fullName; }
     public Role getRole() { return role; }
+    public int getXp() { return xp; }
+    public void setXp(int xp) { this.xp = xp; }
     public LocalDateTime getCreatedAt() { return createdAt; }
 }

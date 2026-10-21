@@ -20,9 +20,12 @@ public class SubmissionWriter {
 
     private final SubmissionRepository submissionRepository;
     private final SubmissionResultRepository submissionResultRepository;
+    private final GamificationService gamificationService;
 
     public SubmissionWriter(SubmissionRepository submissionRepository,
-                            SubmissionResultRepository submissionResultRepository) {
+                            SubmissionResultRepository submissionResultRepository,
+                            GamificationService gamificationService) {
+        this.gamificationService = gamificationService;
         this.submissionRepository = submissionRepository;
         this.submissionResultRepository = submissionResultRepository;
     }
@@ -40,6 +43,7 @@ public class SubmissionWriter {
                     o.exec().timeSeconds() == null ? null : (int) Math.round(o.exec().timeSeconds() * 1000),
                     o.exec().memoryKb()));
         }
+        gamificationService.onSubmissionSaved(user.getId(), status);
         return submission;
     }
 }
