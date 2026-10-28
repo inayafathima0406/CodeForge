@@ -2,6 +2,8 @@
 // Expects an element with id="navbar" already in the page.
 (function renderNavbar() {
     const token = localStorage.getItem("cf_token");
+    let isAdmin = false;
+    if (token) { try { const payload = JSON.parse(atob(token.split(".")[1])); isAdmin = payload.role === "ADMIN"; } catch (e) {} }
     const navbarEl = document.getElementById("navbar");
     if (!navbarEl) return;
 
@@ -15,7 +17,7 @@
         <a href="/pages/problems.html">Problems</a>
         <a href="/pages/submissions.html">Submissions</a>
         <a href="/pages/arena.html">Arena</a>
-        <a href="/pages/leaderboard.html">Leaderboard</a>
+        <a href="/pages/leaderboard.html">Leaderboard</a>${isAdmin ? "<a href=\"/pages/admin.html\">Admin</a>" : ""}
         <a href="#" id="logout-link">Log out</a>
     `;
 
