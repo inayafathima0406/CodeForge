@@ -48,6 +48,12 @@ public class GlobalExceptionHandler {
                 .collect(Collectors.joining("; "));
         return build(HttpStatus.BAD_REQUEST, message);
     }
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<Map<String, Object>> handleGeneric(Exception ex) {
+        return build(HttpStatus.INTERNAL_SERVER_ERROR, "An unexpected error occurred. Please try again.");
+    }
+
+
 
     private ResponseEntity<Map<String, Object>> build(HttpStatus status, String message) {
         Map<String, Object> body = new LinkedHashMap<>();
